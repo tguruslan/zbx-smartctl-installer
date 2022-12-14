@@ -37,7 +37,7 @@ cp tmp/zabbix_smartctl.conf /etc/zabbix/zabbix_agentd.d/
 chown -R $zbx_user:$zbx_group /etc/zabbix/zabbix_agentd.d
 
 if egrep -i "^Include=" /etc/zabbix/zabbix_agentd.conf; then
-    sed -i "s/^Include=.*/Include=/etc/zabbix/zabbix_agentd.d/*.conf/g" /etc/zabbix/zabbix_agentd.conf
+    sed -i "s|^Include=.*|Include=/etc/zabbix/zabbix_agentd.d/*.conf|g" /etc/zabbix/zabbix_agentd.conf
   else
     echo -e "# Include zabbix_agentd.d" >> /etc/zabbix/zabbix_agentd.conf
     echo -e "Include=/etc/zabbix/zabbix_agentd.d/*.conf" >> /etc/zabbix/zabbix_agentd.conf
